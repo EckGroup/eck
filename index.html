@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Eck Group - Parent Company for Diverse Subsidiaries</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a365d',
+                        secondary: '#d69e2e',
+                        accent: '#2b6cb0',
+                        dark: '#1a202c',
+                        light: '#f7fafc'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(42, 67, 101, 0.9) 100%);
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #d69e2e 0%, #f6ad55 50%, #fbd38d 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #d69e2e;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #d69e2e 0%, #f6ad55 100%);
+        }
+        
+        .testimonial-quote:before {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(214, 158, 46, 0.2);
+            position: absolute;
+            top: -2rem;
+            left: -1rem;
+            font-family: Georgia, serif;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-bold text-primary">ECK <span class="text-secondary">GROUP</span></span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#home" class="nav-link text-dark hover:text-primary px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#about" class="nav-link text-dark hover:text-primary px-3 py-2 text-sm font-medium">About</a>
+                    <div class="relative group">
+                        <button class="nav-link text-dark hover:text-primary px-3 py-2 text-sm font-medium flex items-center">
+                            Our Companies <i class="fas fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border-t-4 border-secondary">
+                            <div class="py-1">
+                                <a href="https://eckgroup.github.io/littleman" target="_blank" class="block px-4 py-3 text-sm text-dark hover:bg-primary hover:text-white transition-all">Littleman Consult</a>
+                                <a href="https://eckgroup.github.io/ecktechdevelopers" target="_blank" class="block px-4 py-3 text-sm text-dark hover:bg-primary hover:text-white transition-all">Eck Tech Developers</a>
+                                <a href="https://eckgroup.github.io/eckgradeschool" target="_blank" class="block px-4 py-3 text-sm text-dark hover:bg-primary hover:text-white transition-all">Eck Grade School</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#team" class="nav-link text-dark hover:text-primary px-3 py-2 text-sm font-medium">Team</a>
+                    <a href="#contact" class="nav-link text-dark hover:text-primary px-3 py-2 text-sm font-medium">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-dark hover:text-primary focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:bg-primary hover:text-white">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:bg-primary hover:text-white">About</a>
+                <a href="#companies" class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:bg-primary hover:text-white">Our Companies</a>
+                <a href="#team" class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:bg-primary hover:text-white">Team</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-dark hover:bg-primary hover:text-white">Contact</a>
+                <div class="pt-4 border-t border-gray-200">
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-dark hover:text-primary">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-dark hover:text-primary">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-dark hover:text-primary">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden">
+        <div class="absolute inset-0 hero-gradient z-0"></div>
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1454165804606-3c8f0cb6c9a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center opacity-20 z-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">Building <span class="text-secondary">Excellence</span> Across Industries</h1>
+                    <p class="text-xl text-gray-200 mb-8 max-w-lg">The Eck Group empowers specialized businesses to thrive through strategic oversight and shared resources.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#companies" class="bg-secondary hover:bg-yellow-600 text-white px-8 py-4 rounded-lg font-semibold transition-all flex items-center">
+                            Explore Our Companies <i class="fas fa-arrow-right ml-3"></i>
+                        </a>
+                        <a href="#contact" class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold transition-all flex items-center">
+                            Contact Us <i class="fas fa-phone-alt ml-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-secondary rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
+                        <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-accent rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
+                        <div class="relative bg-white rounded-xl shadow-2xl p-8 text-dark">
+                            <h3 class="text-2xl font-bold mb-6 text-primary">Our Subsidiaries</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start p-4 hover:bg-gray-50 rounded-lg transition-all">
+                                    <div class="flex-shrink-0 h-12 w-12 rounded-full bg-yellow-100 flex items-center justify-center text-secondary">
+                                        <i class="fas fa-graduation-cap text-xl"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-lg">Littleman Consult</h4>
+                                        <p class="text-gray-600">Comprehensive academic support services for students</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start p-4 hover:bg-gray-50 rounded-lg transition-all">
+                                    <div class="flex-shrink-0 h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-accent">
+                                        <i class="fas fa-laptop-code text-xl"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-lg">Eck Tech Developers</h4>
+                                        <p class="text-gray-600">Innovative technology solutions and training programs</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start p-4 hover:bg-gray-50 rounded-lg transition-all">
+                                    <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                                        <i class="fas fa-school text-xl"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-lg">Eck Grade School</h4>
+                                        <p class="text-gray-600">Premium international education services</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Stats Section -->
+        <div class="bg-white relative z-10 -mt-10 mx-4 md:mx-8 lg:mx-16 rounded-xl shadow-xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="p-4">
+                        <div class="text-3xl md:text-4xl font-bold text-primary mb-2">15+</div>
+                        <div class="text-gray-600">Years Experience</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-3xl md:text-4xl font-bold text-primary mb-2">3</div>
+                        <div class="text-gray-600">Specialized Companies</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-3xl md:text-4xl font-bold text-primary mb-2">50+</div>
+                        <div class="text-gray-600">Team Members</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-3xl md:text-4xl font-bold text-primary mb-2">1000+</div>
+                        <div class="text-gray-600">Clients Served</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">About The Eck Group</h2>
+                <div class="section-divider mx-auto"></div>
+            </div>
+            <div class="md:flex md:items-center md:space-x-12">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Eck Group Team" class="rounded-xl shadow-lg w-full h-auto">
+                        <div class="absolute -bottom-6 -right-6 bg-secondary text-white p-6 rounded-xl shadow-lg max-w-xs">
+                            <div class="text-2xl font-bold mb-2">15+ Years</div>
+                            <div class="text-sm">Of combined experience in our industries</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-semibold text-dark mb-6">Our Vision & Mission</h3>
+                    <p class="text-gray-600 mb-6">The Eck Group is a diversified holding company that brings together specialized businesses under one umbrella, each excelling in their respective fields while sharing common values of excellence, innovation, and commitment to quality.</p>
+                    <p class="text-gray-600 mb-8">Founded with the vision to create synergies across different sectors, we empower each subsidiary to focus on what they do best while benefiting from shared resources and strategic oversight.</p>
+                    
+                    <div class="bg-primary/5 p-6 rounded-xl border-l-4 border-secondary relative testimonial-quote">
+                        <p class="text-dark font-medium italic relative z-10">"At Eck Group, we believe in nurturing specialized excellence while creating value through strategic diversification and shared expertise across our subsidiaries."</p>
+                        <div class="mt-4 font-semibold text-secondary">Kwame Osei, Founder & CEO</div>
+                    </div>
+                    
+                    <div class="mt-8 grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mr-3">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="text-sm font-medium">Quality Assurance</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mr-3">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="text-sm font-medium">Innovation</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mr-3">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="text-sm font-medium">Teamwork</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mr-3">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <div class="text-sm font-medium">Integrity</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Companies Section -->
+    <section id="companies" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Our Subsidiary Companies</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Each of our companies operates independently with specialized focus, while benefiting from the collective strength of the Eck Group.</p>
+                <div class="section-divider mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Littleman Consult Card -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all card-hover">
+                    <div class="h-48 bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center relative">
+                        <i class="fas fa-graduation-cap text-white text-6xl"></i>
+                        <div class="absolute bottom-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-semibold">Academic Services</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-dark mb-4">Littleman Consult</h3>
+                        <p class="text-gray-600 mb-6">Specializing in comprehensive academic support including assignments, thesis writing, and project work for students at all levels.</p>
+                        <div class="mb-6">
+                            <div class="flex items-center mb-2">
+                                <div class="w-2 h-2 rounded-full bg-blue-600 mr-2"></div>
+                                <div class="text-sm">Assignment Help</div>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-2 h-2 rounded-full bg-blue-600 mr-2"></div>
+                                <div class="text-sm">Thesis Writing</div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-blue-600 mr-2"></div>
+                                <div class="text-sm">Research Projects</div>
+                            </div>
+                        </div>
+                        <a href="https://eckgroup.github.io/littleman" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                            Visit Website
+                            <i class="fas fa-arrow-right ml-2 transition-transform hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Eck Tech Developers Card -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all card-hover">
+                    <div class="h-48 bg-gradient-to-r from-purple-600 to-purple-800 flex items-center justify-center relative">
+                        <i class="fas fa-laptop-code text-white text-6xl"></i>
+                        <div class="absolute bottom-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-semibold">Technology</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-dark mb-4">Eck Tech Developers Hub</h3>
+                        <p class="text-gray-600 mb-6">Full-service tech solutions provider offering graphic design, UX/UI, software development, mobile apps, and comprehensive training programs.</p>
+                        <div class="mb-6">
+                            <div class="flex items-center mb-2">
+                                <div class="w-2 h-2 rounded-full bg-purple-600 mr-2"></div>
+                                <div class="text-sm">Software Development</div>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-2 h-2 rounded-full bg-purple-600 mr-2"></div>
+                                <div class="text-sm">UX/UI Design</div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-purple-600 mr-2"></div>
+                                <div class="text-sm">Tech Training</div>
+                            </div>
+                        </div>
+                        <a href="https://eckgroup.github.io/ecktechdevelopers" target="_blank" class="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium">
+                            Visit Website
+                            <i class="fas fa-arrow-right ml-2 transition-transform hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Eck Grade School Card -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all card-hover">
+                    <div class="h-48 bg-gradient-to-r from-green-600 to-green-800 flex items-center justify-center relative">
+                        <i class="fas fa-school text-white text-6xl"></i>
+                        <div class="absolute bottom-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-semibold">Education</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-dark mb-4">Eck Grade School</h3>
+                        <p class="text-gray-600 mb-6">Premium international education provider offering IB, IGCSE, A-Levels, and AP courses across diverse subjects and languages.</p>
+                        <div class="mb-6">
+                            <div class="flex items-center mb-2">
+                                <div class="w-2 h-2 rounded-full bg-green-600 mr-2"></div>
+                                <div class="text-sm">IB Curriculum</div>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-2 h-2 rounded-full bg-green-600 mr-2"></div>
+                                <div class="text-sm">IGCSE Programs</div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 rounded-full bg-green-600 mr-2"></div>
+                                <div class="text-sm">A-Level Courses</div>
+                            </div>
+                        </div>
+                        <a href="https://eckgroup.github.io/eckgradeschool" target="_blank" class="inline-flex items-center text-green-600 hover:text-green-800 font-medium">
+                            Visit Website
+                            <i class="fas fa-arrow-right ml-2 transition-transform hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-white rounded-xl shadow-xl p-8 md:p-12">
+                <h3 class="text-2xl md:text-3xl font-bold text-dark mb-8 text-center">The Eck Group Advantage</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-6 hover:bg-gray-50 rounded-xl transition-all">
+                        <div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-secondary">
+                            <i class="fas fa-star text-3xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3">Specialized Excellence</h4>
+                        <p class="text-gray-600">Each company focuses deeply on its niche, delivering best-in-class services with dedicated expertise.</p>
+                    </div>
+                    <div class="text-center p-6 hover:bg-gray-50 rounded-xl transition-all">
+                        <div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-secondary">
+                            <i class="fas fa-shield-alt text-3xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3">Quality Assurance</h4>
+                        <p class="text-gray-600">Rigorous standards maintained across all subsidiaries under Eck Group oversight and best practices.</p>
+                    </div>
+                    <div class="text-center p-6 hover:bg-gray-50 rounded-xl transition-all">
+                        <div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-secondary">
+                            <i class="fas fa-chart-line text-3xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3">Strategic Growth</h4>
+                        <p class="text-gray-600">Shared resources and strategic planning enable each company to grow beyond standalone capabilities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Meet Our Leadership</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">The dedicated professionals driving the Eck Group forward with vision and expertise.</p>
+                <div class="section-divider mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transition-all card-hover">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="CEO" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-1">Kwame Osei</h3>
+                        <p class="text-secondary font-medium mb-4">Founder & CEO</p>
+                        <p class="text-gray-600 mb-4">Visionary leader with 15+ years experience in education and technology sectors, driving the strategic direction of Eck Group.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-400 hover:text-primary">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-primary">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-primary">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transition-all card-hover">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="CTO" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-1">Ama Serwaa</h3>
+                        <p class="text-secondary font-medium mb-4">Chief Technology Officer</p>
+                        <p class="text-gray-600 mb-4">Tech innovator with expertise in software architecture, digital transformation, and leading technical teams to excellence.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-400 hover:text-primary">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-primary">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-primary">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transition-all card-hover">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Education Director" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-1">Esi Nyarko</h3>
+                        <p class="text-secondary font-medium mb-4">Director of Education</p>
+                        <p class="text-gray-600 mb-4">Education specialist with international experience in curriculum development and innovative pedagogical approaches.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-400 hover:text-primary">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-primary">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-primary">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl font-semibold text-dark mb-6">Join Our Team</h3>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-8">We're always looking for talented individuals to join our growing team across our various subsidiaries.</p>
+                <a href="#contact" class="inline-block bg-secondary hover:bg-yellow-600 text-white font-medium py-3 px-8 rounded-lg transition-all">
+                    Explore Careers <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+                <div class="section-divider mx-auto bg-white"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0 h-12 w-12 rounded-full bg-secondary flex items-center justify-center text-white">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-semibold">Kwaku Mensah</div>
+                            <div class="text-sm text-gray-300">University of Ghana</div>
+                        </div>
+                    </div>
+                    <p class="italic">"Littleman Consult helped me complete my master's thesis with exceptional quality and attention to detail. Their expertise was invaluable."</p>
+                    <div class="mt-4 flex text-yellow-300">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0 h-12 w-12 rounded-full bg-secondary flex items-center justify-center text-white">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-semibold">Adwoa Boateng</div>
+                            <div class="text-sm text-gray-300">Tech Startup Founder</div>
+                        </div>
+                    </div>
+                    <p class="italic">"Eck Tech Developers built our mobile app with cutting-edge technology and provided excellent training for our team. Highly recommended!"</p>
+                    <div class="mt-4 flex text-yellow-300">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0 h-12 w-12 rounded-full bg-secondary flex items-center justify-center text-white">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-semibold">Yaw Asante</div>
+                            <div class="text-sm text-gray-300">Parent</div>
+                        </div>
+                    </div>
+                    <p class="italic">"Eck Grade School provides an exceptional international education. My child has thrived in their IB program and developed a love for learning."</p>
+                    <div class="mt-4 flex text-yellow-300">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Get In Touch</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have questions about our companies or services? Our team is ready to assist you.</p>
+                <div class="section-divider mx-auto mt-4"></div>
+            </div>
+            
+            <div class="md:flex md:space-x-8">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-semibold text-dark mb-6">Send us a message</h3>
+                        <form>
+                            <div class="mb-6">
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name *</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-secondary focus:border-secondary transition-all" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-secondary focus:border-secondary transition-all" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Which company are you inquiring about?</label>
+                                <select id="company" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-secondary focus:border-secondary transition-all">
+                                    <option value="">Select a company</option>
+                                    <option value="littleman">Littleman Consult</option>
+                                    <option value="ecktech">Eck Tech Developers</option>
+                                    <option value="gradeschool">Eck Grade School</option>
+                                    <option value="eckgroup">Eck Group (General Inquiry)</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Your Message *</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-secondary focus:border-secondary transition-all" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary hover:bg-blue-800 text-white font-medium py-3 px-6 rounded-lg transition-all mb-4 flex items-center justify-center">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Message
+                            </button>
+                            <a href="https://wa.me/233574168196?text=Hello%20Eck%20Group,%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-all flex items-center justify-center">
+                                <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
+                            </a>
+                        </form>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-primary text-white p-8 rounded-xl shadow-lg h-full">
+                        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-secondary/20 flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-secondary"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-lg">Headquarters</h4>
+                                    <p class="text-gray-300 mt-1">123 Business Avenue, Tech District<br>Cityville, ST 12345</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-secondary/20 flex items-center justify-center">
+                                    <i class="fas fa-envelope text-secondary"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-lg">Email</h4>
+                                    <p class="text-gray-300 mt-1">eck.tech.devs@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-secondary/20 flex items-center justify-center">
+                                    <i class="fas fa-phone-alt text-secondary"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-lg">Phone</h4>
+                                    <p class="text-gray-300 mt-1">+233 20 4931812<br>+233 574168196<br>+233 534795027</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <h4 class="font-medium text-lg mb-4">Business Hours</h4>
+                            <div class="bg-white/10 p-4 rounded-lg">
+                                <div class="flex justify-between py-2 border-b border-white/10">
+                                    <span>Monday - Friday</span>
+                                    <span class="font-medium">8:00 AM - 6:00 PM</span>
+                                </div>
+                                <div class="flex justify-between py-2">
+                                    <span>Saturday</span>
+                                    <span class="font-medium">9:00 AM - 2:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <h4 class="font-medium text-lg mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="h-12 w-12 rounded-full bg-secondary/20 hover:bg-secondary/30 flex items-center justify-center transition-all text-secondary">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="h-12 w-12 rounded-full bg-secondary/20 hover:bg-secondary/30 flex items-center justify-center transition-all text-secondary">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="h-12 w-12 rounded-full bg-secondary/20 hover:bg-secondary/30 flex items-center justify-center transition-all text-secondary">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="h-12 w-12 rounded-full bg-secondary/20 hover:bg-secondary/30 flex items-center justify-center transition-all text-secondary">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-secondary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Stay Updated with Eck Group</h2>
+            <p class="text-white/90 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter for the latest news, updates, and insights from our companies.</p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg border border-white/20 bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:border-white placeholder-white/70">
+                <button type="submit" class="bg-white hover:bg-gray-100 text-secondary font-medium py-3 px-6 rounded-lg transition-all">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ECK <span class="text-secondary">GROUP</span></h3>
+                    <p class="text-gray-400 mb-4">Empowering specialized businesses to achieve excellence through strategic oversight and shared resources.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Our Companies</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://eckgroup.github.io/littleman" target="_blank" class="text-gray-400 hover:text-white transition-all">Littleman Consult</a></li>
+                        <li><a href="https://eckgroup.github.io/ecktechdevelopers" target="_blank" class="text-gray-400 hover:text-white transition-all">Eck Tech Developers</a></li>
+                        <li><a href="https://eckgroup.github.io/eckgradeschool" target="_blank" class="text-gray-400 hover:text-white transition-all">Eck Grade School</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-all">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-all">About</a></li>
+                        <li><a href="#companies" class="text-gray-400 hover:text-white transition-all">Our Companies</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-white transition-all">Team</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-all">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Cookie Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Eck Group. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/233574168196" target="_blank" class="bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-xl transition-all transform hover:scale-110">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-24 right-6 z-50 bg-primary hover:bg-blue-800 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-xl transition-all opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form submission (prevent default for demo)
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! This is a demo form. In a real implementation, this would submit to a server.');
+            });
+        });
+    </script>
+</body>
+</html>
